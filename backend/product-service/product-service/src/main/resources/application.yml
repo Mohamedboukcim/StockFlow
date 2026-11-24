@@ -1,0 +1,22 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: product-service
+  datasource:
+    url: jdbc:postgresql://localhost:5432/product_db
+    username: stockflow
+    password: stockflow
+  jpa:
+    hibernate:
+      ddl-auto: validate      # Flyway gère le schéma, Hibernate le vérifie seulement
+    open-in-view: false
+  flyway:
+    enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
